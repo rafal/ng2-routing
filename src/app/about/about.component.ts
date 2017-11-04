@@ -46,15 +46,20 @@ const users: User[] = [
     <div class="row" *ngIf="users">
 
       <div class="col-sm-4" *ngFor="let user of users">
-        <div class="profile-card">
+
+        <div class="profile-card" [routerLink]="['/about', user.username]">
           <img [src]="user.avatar" class="img-responsive img-circle">
+
           <h2>{{ user.name }}</h2>
-          <p><a href="#">{{ user.username }}</a></p>
+          
+          <p><a href="https://twitter.com/{{ user.username }}">
+            {{ user.username }}
+          </a></p>
         </div>
+
       </div>
 
     </div>
-    i am teh about page
   `
 })
 export class AboutComponent{
