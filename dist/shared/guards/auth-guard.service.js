@@ -14,6 +14,10 @@ var AuthGuard = /** @class */ (function () {
         console.log('i am checkin to see if u r logged in');
         return true;
     };
+    AuthGuard.prototype.canActivateChild = function () {
+        console.log('checking child route access');
+        return true;
+    };
     AuthGuard = __decorate([
         core_1.Injectable()
     ], AuthGuard);
