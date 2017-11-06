@@ -9,11 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var dashboard_module_1 = require("./dashboard/dashboard.module");
 var app_routing_1 = require("./app.routing");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var contact_component_1 = require("./contact/contact.component");
 var not_found_component_1 = require("./not-found/not-found.component");
+var auth_guard_service_1 = require("./shared/guards/auth-guard.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -22,7 +24,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                app_routing_1.appRouting
+                app_routing_1.appRouting,
+                dashboard_module_1.DashboardModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -30,7 +33,9 @@ var AppModule = /** @class */ (function () {
                 contact_component_1.ContactComponent,
                 not_found_component_1.NotFoundComponent
             ],
-            providers: [],
+            providers: [
+                auth_guard_service_1.AuthGuard
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
